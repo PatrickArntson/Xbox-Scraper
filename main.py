@@ -55,7 +55,7 @@ def send_alert(message, recipient, url):
 
     email = os.getenv('EMAIL')
     password = os.getenv('PASSWORD')
-    msg['from'] = user
+    msg['from'] = email
     msg['to'] = recipient
 
     server = smtplib.SMTP("smtp.gmail.com", 587)
