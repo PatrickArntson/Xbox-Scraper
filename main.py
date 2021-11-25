@@ -53,14 +53,14 @@ def send_alert(message, recipient, url):
     msg.set_content(body)
     msg['subject'] = 'ALERT'
 
-    user = os.getenv('EMAIL')
+    email = os.getenv('EMAIL')
     password = os.getenv('PASSWORD')
     msg['from'] = user
     msg['to'] = recipient
 
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.starttls()
-    server.login(user, password)
+    server.login(email, password)
     server.send_message(msg)
 
     server.quit()
