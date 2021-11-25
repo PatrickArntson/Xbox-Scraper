@@ -8,12 +8,9 @@ from dotenv import load_dotenv
 start_time = time.time()
 load_dotenv()
 
-
 alert = 'XBOX SERIES X IN STOCK AT: '
 # Users
-josh = os.getenv('JOSH')
-patrick = os.getenv('PATRICK')
-mom = os.getenv('MOM')
+user = os.getenv('ADMIN')
 
 
 # Settings for Best Buy
@@ -75,27 +72,30 @@ def run():
 
         # prints message to console once every minute
         if run_count % 4 == 0:
-            print('Still Scraping...')
+            print('Running for ' + str(int(run_count/4)) + ' minutes: Still Scraping...')
+
+        # max get request timeout
+        if run_count % 450 == 0:
+            time.sleep(120)
 
         try:
             bestbuy = extract_data(extract_source(bestbuy_url), bestbuy_container, bestbuy_key, bestbuy_in_stock)
             if bestbuy:
-                send_alert(alert, josh, bestbuy_url)
-                send_alert(alert, patrick, bestbuy_url)
-                send_alert(alert, mom, bestbuy_url)
+                send_alert(alert, user, bestbuy_url)
 
             gamestop = extract_data(extract_source(gamestop_url), gamestop_container, gamestop_key, gamestop_in_stock)
             if gamestop:
-                send_alert(alert, josh, gamestop_url)
-                send_alert(alert, patrick, gamestop_url)
-                send_alert(alert, mom, gamestop_url)
+                send_alert(alert, user, gamestop_url)
+
+            # wait 15 seconds to check websites again
+            time.sleep(15)
+            run_count += 1
 
         except ConnectError:
+            err = 'Connection Error has occurred after ' + str(run_count/4) + ' minutes.'
+            send_alert(err, user, None)
             print("Problem Establishing Connection")
-
-        # wait 15 seconds to check websites again
-        time.sleep(15.0 - ((time.time() - start_time) % 15.0))
-        run_count += 1
+            continue
 
 
 if __name__ == "__main__":
