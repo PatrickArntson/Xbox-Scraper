@@ -7,14 +7,14 @@ Immediately following your phone number, attach the appropriate suffix to the en
 
 Here are a list of the different carrierer's suffixes:
 
-AT&T: phonenumber@txt.att.net
+AT&T: @txt.att.net
 
-T-Mobile: phonenumber@tmomail.net
+T-Mobile: @tmomail.net
 
-Sprint: phonenumber@messaging.sprintpcs.com
+Sprint: @messaging.sprintpcs.com
 
-Verizon: phonenumber@vtext.com or phonenumber@vzwpix.com
+Verizon: @vtext.com or @vzwpix.com
 
-Virgin Mobile: phonenumber@vmobl.com
+Virgin Mobile: @vmobl.com
 
 For example, if you use Verizon your number would look like: user = '5030005555@vzwpix.com'
