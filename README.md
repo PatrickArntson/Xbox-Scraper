@@ -20,7 +20,7 @@ Virgin Mobile: @vmobl.com
 For example, if you use Verizon your number would look like: user = '5030005555@vzwpix.com'
 
 
-After Specifying the users, you must give an email that will send the alerts. To do this, set the 'email' and 'password' variables in the sendequal to your email with its corresponding password. 
+After Specifying the users, you must give an email that will send the alerts. To do this, set the 'email' and 'password' variables to your email with its corresponding password. 
 *NOTE: If you're not using a gmail, you will also have to modify the SMTP setting (in the send_alert function) to your email service provider. 
 
 
