@@ -84,10 +84,12 @@ def run():
         try:
             bestbuy = extract_data(extract_source(bestbuy_url), bestbuy_container, bestbuy_key, bestbuy_in_stock)
             if bestbuy:
+                # If there are multiple users, call this function for every user you desire with their names in the 'user' variable
                 send_alert(alert, user, bestbuy_url)
 
             gamestop = extract_data(extract_source(gamestop_url), gamestop_container, gamestop_key, gamestop_in_stock)
             if gamestop:
+                # If there are multiple users, call this function for every user you desire with their names in the 'user' variable
                 send_alert(alert, user, gamestop_url)
 
             # wait 15 seconds to check websites again
