@@ -8,9 +8,15 @@ from dotenv import load_dotenv
 start_time = time.time()
 load_dotenv()
 
+# Alert message
 alert = 'XBOX SERIES X IN STOCK AT: '
-# Users
-user = os.getenv('ADMIN')
+
+# Users (can add as many users as you wish)
+user = 'YOUR NUMBER WITH CORRESPONDING SUFFIX HERE'
+
+# Email and password for sending the SMS alerts
+email = 'YOUR EMAIL HERE'
+password = 'YOUR PASSWORD HERE'
 
 
 # Settings for Best Buy
@@ -52,9 +58,6 @@ def send_alert(message, recipient, url):
     msg = EmailMessage()
     msg.set_content(body)
     msg['subject'] = 'ALERT'
-
-    email = os.getenv('EMAIL')
-    password = os.getenv('PASSWORD')
     msg['from'] = email
     msg['to'] = recipient
 
